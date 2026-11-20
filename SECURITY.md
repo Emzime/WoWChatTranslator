@@ -4,7 +4,7 @@ Français | [English](#security-policy-english)
 
 ## Versions prises en charge
 
-Seule la **dernière release** de WoWChatTranslator (addon + compagnon) reçoit des correctifs de sécurité. Le compagnon se met à jour tout seul depuis GitHub : gardez cette option activée.
+Seule la **dernière release** de WoWChatTranslator (addon + compagnon) reçoit des correctifs de sécurité. Le compagnon vérifie les nouvelles versions sur GitHub et propose de les installer (rien n'est téléchargé sans votre accord) : gardez l'option « Rechercher les mises à jour » activée et acceptez les mises à jour proposées.
 
 | Version | Prise en charge |
 | ------- | --------------- |
@@ -25,7 +25,7 @@ Le signalement reste privé entre vous et le mainteneur. Vous recevrez une répo
 
 Sont notamment concernés :
 
-- le compagnon `WoWChatTranslatorCompagnion.exe` (mise à jour automatique, téléchargement des modèles, vérification SHA-256, installation de l'addon) ;
+- le compagnon `WoWChatTranslatorCompagnion.exe` (mises à jour, téléchargement des modèles, vérification SHA-256, installation de l'addon) ;
 - l'addon `WoWChatTranslator` ;
 - les workflows GitHub Actions qui compilent et publient les releases.
 
@@ -35,11 +35,11 @@ Pour savoir quelles données sortent de votre PC, voir la page [Confidentialité
 
 # Security policy (English)
 
-[Français](#politique-de-sécurité-français) | English
+[Français](#politique-de-s%C3%A9curit%C3%A9-fran%C3%A7ais) | English
 
 ## Supported versions
 
-Only the **latest release** of WoWChatTranslator (addon + companion) receives security fixes. The companion updates itself from GitHub: keep that option turned on.
+Only the **latest release** of WoWChatTranslator (addon + companion) receives security fixes. The companion checks GitHub for new versions and offers to install them (nothing is downloaded without your consent): keep the "Check for updates" option turned on and accept the updates it offers.
 
 | Version | Supported |
 | ------- | --------- |
@@ -60,7 +60,7 @@ The report stays private between you and the maintainer. You will get an answer 
 
 This includes:
 
-- the `WoWChatTranslatorCompagnion.exe` companion (auto-update, model downloads, SHA-256 checks, addon installation);
+- the `WoWChatTranslatorCompagnion.exe` companion (updates, model downloads, SHA-256 checks, addon installation);
 - the `WoWChatTranslator` addon;
 - the GitHub Actions workflows that build and publish releases.
 
