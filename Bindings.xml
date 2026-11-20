@@ -1,8 +1,0 @@
-<Bindings>
-    <Binding name="WOWCHATTRANSLATOR_TOGGLE" header="WOWCHATTRANSLATOR" category="ADDONS">
-        WoWChatTranslator_Toggle()
-    </Binding>
-    <Binding name="WOWCHATTRANSLATOR_SCREENSHOT" category="ADDONS">
-        WoWChatTranslator_Screenshot()
-    </Binding>
-</Bindings>

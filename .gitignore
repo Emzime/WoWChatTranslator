@@ -7,3 +7,9 @@ companion/work/
 companion/build/icon.ico
 companion/build/splash.png
 companion/models_quality/
+
+# Addon files belong in addon/WoWChatTranslator/ only: copies dropped at the root of the
+# repository (from the game's AddOns folder) are never committed.
+/*.lua
+/*.toc
+/Bindings.xml
