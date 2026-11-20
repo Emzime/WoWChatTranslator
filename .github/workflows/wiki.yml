@@ -24,6 +24,6 @@ jobs:
     runs-on: ubuntu-24.04   # pinned: ubuntu-latest moves to Ubuntu 26 (notice in the build)
     steps:
       - uses: actions/checkout@v7
-      - uses: Andrew-Chen-Wang/github-wiki-action@v5
+      - uses: Andrew-Chen-Wang/github-wiki-action@1bbb4280446f9630e8e21a18012cbacf3b0f992e  # v5.0.6
         with:
           path: wiki/
