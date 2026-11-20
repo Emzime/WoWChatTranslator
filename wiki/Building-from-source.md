@@ -26,4 +26,4 @@ Layout:
 - `companion/tests/corpus.jsonl`: chat phrases with the words expected or forbidden in their translation. `build/check_translations.py [model folder] [--only TEXT] [--all] [--trace]` translates them with the real model and reports what goes wrong; `--trace` shows each step (masking, detected language, text sent to the model). Add every badly translated phrase to it before fixing the glossary.
 - `companion/build`: build (PyInstaller spec, models, icon).
 - `wiki`: the pages of this wiki.
-- `docs/images`: screenshots of the README and the wiki (`python build/readme_screenshots.py`).
+- `docs/images/fr`, `docs/images/en`: screenshots of the README and the wiki, in the language of the page (`python build/readme_screenshots.py`).

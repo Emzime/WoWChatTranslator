@@ -23,5 +23,5 @@ L'addon seul est aussi disponible dans chaque release (`WoWChatTranslator-addon.
 
 ## Premier lancement
 
-<img src="https://raw.githubusercontent.com/Emzime/WoWChatTranslator/main/docs/images/first-launch.png" alt="Choix du modèle" width="480">
-<img src="https://raw.githubusercontent.com/Emzime/WoWChatTranslator/main/docs/images/model-download.png" alt="Téléchargement du modèle" width="480">
+<img src="https://raw.githubusercontent.com/Emzime/WoWChatTranslator/main/docs/images/fr/first-launch.png" alt="Choix du modèle" width="480">
+<img src="https://raw.githubusercontent.com/Emzime/WoWChatTranslator/main/docs/images/fr/model-download.png" alt="Téléchargement du modèle" width="480">

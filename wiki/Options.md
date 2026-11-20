@@ -6,7 +6,7 @@
 
 Les changements s'appliquent tout de suite. Chaque réglage a une bulle **?** qui explique à quoi il sert, et chaque bouton affiche le résultat de son action (glossaire rechargé, recherche de mise à jour…). Les boutons qui déplacent la surcouche ne sont actifs que lorsque le jeu est lancé.
 
-<img src="https://raw.githubusercontent.com/Emzime/WoWChatTranslator/main/docs/images/options-translation.png" alt="Onglet Traduction" width="480">
-<img src="https://raw.githubusercontent.com/Emzime/WoWChatTranslator/main/docs/images/options-help.png" alt="Bulle d'aide" width="480">
-<img src="https://raw.githubusercontent.com/Emzime/WoWChatTranslator/main/docs/images/options-display.png" alt="Onglet Affichage" width="480">
-<img src="https://raw.githubusercontent.com/Emzime/WoWChatTranslator/main/docs/images/options-general.png" alt="Onglet Général" width="480">
+<img src="https://raw.githubusercontent.com/Emzime/WoWChatTranslator/main/docs/images/fr/options-translation.png" alt="Onglet Traduction" width="480">
+<img src="https://raw.githubusercontent.com/Emzime/WoWChatTranslator/main/docs/images/fr/options-help.png" alt="Bulle d'aide" width="480">
+<img src="https://raw.githubusercontent.com/Emzime/WoWChatTranslator/main/docs/images/fr/options-display.png" alt="Onglet Affichage" width="480">
+<img src="https://raw.githubusercontent.com/Emzime/WoWChatTranslator/main/docs/images/fr/options-general.png" alt="Onglet Général" width="480">

@@ -26,4 +26,4 @@ Structure :
 - `companion/tests/corpus.jsonl` : phrases de chat avec les mots attendus ou interdits dans leur traduction. `build/check_translations.py [dossier du modèle] [--only TEXTE] [--all] [--trace]` les traduit avec le vrai modèle et signale ce qui ne va pas ; `--trace` montre chaque étape (masquage, langue détectée, texte envoyé au modèle). Ajoutez-y chaque phrase mal traduite avant de corriger le glossaire.
 - `companion/build` : compilation (spec PyInstaller, modèles, icône).
 - `wiki` : les pages de ce wiki.
-- `docs/images` : les captures du README et du wiki (`python build/readme_screenshots.py`).
+- `docs/images/fr`, `docs/images/en` : les captures du README et du wiki, dans la langue de la page (`python build/readme_screenshots.py`).

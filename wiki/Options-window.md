@@ -6,7 +6,7 @@
 
 Changes apply at once. Every setting has a **?** bubble explaining what it does, and every button shows the result of its action (glossary reloaded, update check…). The buttons that move the overlay are only active while the game is running.
 
-<img src="https://raw.githubusercontent.com/Emzime/WoWChatTranslator/main/docs/images/options-translation.png" alt="Translation tab" width="480">
-<img src="https://raw.githubusercontent.com/Emzime/WoWChatTranslator/main/docs/images/options-help.png" alt="Help bubble" width="480">
-<img src="https://raw.githubusercontent.com/Emzime/WoWChatTranslator/main/docs/images/options-display.png" alt="Display tab" width="480">
-<img src="https://raw.githubusercontent.com/Emzime/WoWChatTranslator/main/docs/images/options-general.png" alt="General tab" width="480">
+<img src="https://raw.githubusercontent.com/Emzime/WoWChatTranslator/main/docs/images/en/options-translation.png" alt="Translation tab" width="480">
+<img src="https://raw.githubusercontent.com/Emzime/WoWChatTranslator/main/docs/images/en/options-help.png" alt="Help bubble" width="480">
+<img src="https://raw.githubusercontent.com/Emzime/WoWChatTranslator/main/docs/images/en/options-display.png" alt="Display tab" width="480">
+<img src="https://raw.githubusercontent.com/Emzime/WoWChatTranslator/main/docs/images/en/options-general.png" alt="General tab" width="480">

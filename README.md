@@ -191,15 +191,16 @@ World of Warcraft, Warcraft and Blizzard Entertainment are trademarks of Blizzar
 
 <!-- Surcouche en jeu / in-game overlay: add docs/images/overlay.png here once captured. -->
 
+**Français**
+
 <p align="center">
-  <img src="docs/images/first-launch.png" alt="Choix du modèle / Model choice" width="420">
-  <img src="docs/images/model-download.png" alt="Téléchargement du modèle / Model download" width="420">
+  <img src="docs/images/fr/options-translation.png" alt="Options : Traduction" width="420">
+  <img src="docs/images/fr/first-launch.png" alt="Choix du modèle" width="420">
 </p>
+
+**English**
+
 <p align="center">
-  <img src="docs/images/options-translation.png" alt="Options : Traduction / Translation" width="420">
-  <img src="docs/images/options-help.png" alt="Bulle d'aide / Help bubble" width="420">
-</p>
-<p align="center">
-  <img src="docs/images/options-display.png" alt="Options : Affichage / Display" width="420">
-  <img src="docs/images/options-general.png" alt="Options : Général / General" width="420">
+  <img src="docs/images/en/options-general.png" alt="Options: General" width="420">
+  <img src="docs/images/en/model-download.png" alt="Model download" width="420">
 </p>

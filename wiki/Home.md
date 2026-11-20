@@ -16,4 +16,4 @@ Instant, local translation of the **World of Warcraft Forever** chat into each p
 | [Problèmes connus](Problèmes-connus) | [Known issues](Known-issues) |
 | [Compiler depuis les sources](Compiler-depuis-les-sources) | [Building from source](Building-from-source) |
 
-<img src="https://raw.githubusercontent.com/Emzime/WoWChatTranslator/main/docs/images/options-translation.png" alt="Options" width="480">
+<img src="https://raw.githubusercontent.com/Emzime/WoWChatTranslator/main/docs/images/fr/options-translation.png" alt="Options (français)" width="420"> <img src="https://raw.githubusercontent.com/Emzime/WoWChatTranslator/main/docs/images/en/options-translation.png" alt="Options (English)" width="420">

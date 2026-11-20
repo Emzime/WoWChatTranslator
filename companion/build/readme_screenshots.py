@@ -1,7 +1,8 @@
-"""Screenshots of the companion's windows for the README preview (docs/images/*.png).
+"""Screenshots of the companion's windows for the README and the wiki, in the language of
+the page that shows them (docs/images/<language>/*.png).
 
-Usage: python build/readme_screenshots.py [language, default fr]. The in-game shot of the
-overlay (overlay.png) is taken in the game with the companion's screenshot command.
+Usage: python build/readme_screenshots.py [language ...] (default: fr en). The in-game shot
+of the overlay (overlay.png) is taken in the game with the companion's screenshot command.
 """
 import sys, time, os, tempfile
 from pathlib import Path
@@ -12,7 +13,13 @@ from PIL import ImageGrab
 from wctc.i18n import Texts
 from wctc.config import Config
 from wctc import options, models, model_dialog
-lang = sys.argv[1] if len(sys.argv) > 1 else 'fr'; out = Path(__file__).resolve().parents[2] / 'docs' / 'images'
+langs = sys.argv[1:] or ['fr', 'en']
+if len(langs) > 1:          # one language per run (a fresh Tk and a fresh scale each time)
+    import subprocess
+    for one in langs:
+        subprocess.run([sys.executable, __file__, one], check=True)
+    sys.exit(0)
+lang = langs[0]; out = Path(__file__).resolve().parents[2] / 'docs' / 'images' / lang
 out.mkdir(parents=True, exist_ok=True)
 # Pretend the Standard model is installed and the game runs, as for a player.
 models.model_path = lambda key: "x" if key == "standard" else None
