@@ -1,0 +1,1 @@
+[WoWChatTranslator](https://github.com/Emzime/WoWChatTranslator) · [Releases](https://github.com/Emzime/WoWChatTranslator/releases) · [Issues](https://github.com/Emzime/WoWChatTranslator/issues) — Ce wiki est généré depuis le dossier `wiki/` du dépôt / This wiki is generated from the repository's `wiki/` folder.

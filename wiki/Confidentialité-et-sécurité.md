@@ -1,0 +1,7 @@
+- Les messages sont traduits **sur votre PC**. Aucun message du chat ne quitte votre ordinateur.
+- Le compagnon se connecte à Internet seulement pour :
+  - vérifier et télécharger les mises à jour (GitHub) ;
+  - télécharger un modèle de traduction, uniquement quand vous le choisissez (GitHub) ;
+  - chaque fichier téléchargé (mise à jour ou modèle) est comparé à l'empreinte SHA-256 que GitHub a calculée lors de sa publication : s'il diffère, il est supprimé sans être ni décompressé ni installé ;
+  - afficher les infobulles des liens (Wowhead : seul le numéro de l'objet, du sort ou de la quête est envoyé).
+- Réglages et journal : `%APPDATA%\WoWChatTranslatorCompagnion`. Le journal ne contient les messages du chat que si vous activez **Journal des traductions** (Options → Général) ; il reste sur votre PC.

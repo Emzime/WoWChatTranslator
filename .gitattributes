@@ -1,0 +1,8 @@
+# Same line endings on every machine: LF in the repository and in working copies
+# (WoW and Python read both). Binary files are never converted.
+* text=auto eol=lf
+*.png binary
+*.ico binary
+*.zip binary
+*.exe binary
+*.bin binary

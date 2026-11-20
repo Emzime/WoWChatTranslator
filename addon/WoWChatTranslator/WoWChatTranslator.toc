@@ -1,0 +1,15 @@
+## Interface: 120001
+## Title: WoWChatTranslator
+## Notes: Instant chat translation (requires WoWChatTranslatorCompagnion)
+## Notes-frFR: Traduction instantanée du chat (nécessite WoWChatTranslatorCompagnion)
+## Author: Emzime
+## Version: 1.0.0
+## DefaultState: enabled
+## SavedVariables: WoWChatTranslatorDB
+## IconTexture: Interface\Icons\INV_Misc_Book_09
+
+Locales.lua
+Companion.lua
+Bridge.lua
+Chat.lua
+WoWChatTranslator.lua

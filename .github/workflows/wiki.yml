@@ -1,0 +1,29 @@
+# Publishes the wiki/ folder to the repository's GitHub wiki on every push that changes it.
+# The wiki itself is only a copy: edit the pages in wiki/, never in the Wiki tab (overwritten).
+# One-time setup: Settings > Features > Wikis enabled, and a first page created in the Wiki tab.
+name: Publish wiki
+run-name: ${{ format('Wiki - {0}', github.event.head_commit.message || 'manual run') }}
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - wiki/**
+      - .github/workflows/wiki.yml
+  workflow_dispatch:
+
+concurrency:
+  group: publish-wiki
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  publish-wiki:
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest moves to Ubuntu 26 (notice in the build)
+    steps:
+      - uses: actions/checkout@v6
+      - uses: Andrew-Chen-Wang/github-wiki-action@v5
+        with:
+          path: wiki/

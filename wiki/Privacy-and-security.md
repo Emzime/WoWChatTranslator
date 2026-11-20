@@ -1,0 +1,7 @@
+- Messages are translated **on your PC**. No chat message ever leaves your computer.
+- The companion only goes online to:
+  - check for and download updates (GitHub);
+  - download a translation model, only when you choose it (GitHub);
+  - every downloaded file (update or model) is checked against the SHA-256 digest GitHub computed when it was published: if it differs, it is deleted without being unpacked or installed;
+  - show link tooltips (Wowhead: only the item, spell or quest number is sent).
+- Settings and log: `%APPDATA%\WoWChatTranslatorCompagnion`. The log only contains chat messages if you turn on **Translation log** (Options → General); it stays on your PC.

@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+companion/models/
+companion/dist/
+companion/work/
+companion/build/icon.ico
+companion/build/splash.png
+companion/models_quality/

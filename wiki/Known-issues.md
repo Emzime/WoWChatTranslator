@@ -1,0 +1,6 @@
+- **The game must run in windowed or windowed fullscreen mode**, not exclusive fullscreen.
+- **After moving the overlay**, a `/reload` is needed so the grid follows.
+- **If the companion is closed while the game is running**, the grid becomes visible again. Hide it with the overlay key binding, `/wct toggle` or `/reload`.
+- **While the game is hidden** (another window in front, game minimised), the companion no longer receives the chat. If the game logs its chat (the companion's "Record the game chat" option, or `/chatlog` in game; file `Logs/WoWChatLog.txt`), the missed channel, guild, group and whisper lines are read back from that file and translated when you come back. Without that log, they are not translated.
+- **Some letters show as boxes in the game's own chat** (Czech, Greek…): that is the game font. The overlay shows them correctly.
+- **Slang and typos** remain hard to translate for any model.

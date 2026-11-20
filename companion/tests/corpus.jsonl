@@ -1,0 +1,129 @@
+# Real chat lines and what their translation must (expect) or must not (forbid) contain.
+# Run: python build/check_translations.py   (needs a model; see the script)
+{"text": "LFM Tank pour Dalaran", "translated": false}
+{"text": "lfm heal pour mortemines", "translated": false}
+{"text": "LFM tank SFK", "expect": ["recherche", "joueurs"]}
+{"text": "LFM [WANTED: Arnak Grimtotem][Grimtotem Spying][Arikara]", "expect": ["recherche", "[WANTED: Arnak Grimtotem]"]}
+{"text": "are you full?", "expect": ["place", "groupe"], "forbid": ["rassasi"]}
+{"text": "up for [Cœurs tonnants]", "expect": ["disponible", "[Cœurs tonnants]"]}
+{"text": "anyone up for SFK?", "expect": ["disponible", "SFK"]}
+{"text": "she sold out", "expect": ["tout vendu"]}
+{"text": "LF Miner to smelt me a Silver Bar from Silver Ore", "expect": ["mineur"], "forbid": ["minage", "sentir"]}
+{"text": "last dps for ragefire", "expect": ["Gouffre de Ragefeu", "dps"], "forbid": ["feu de rage"]}
+{"text": "suche Gruppe für RF", "expect": ["cherche", "groupe"], "forbid": ["recherchez"]}
+{"text": "Where do I get a mining bag from?", "expect": ["sac"]}
+{"text": "Enchanting [Enchanting: Enchant Weapon - Revelation] your mats + tips welcome", "expect": ["vos matériaux", "(pourboire bienvenu)"], "forbid": ["conseils", "astuce", "+ ("]}
+{"text": "can craft it with ur mats, tips welcome", "expect": ["Je peux", "matériaux", "(pourboire bienvenu)"]}
+{"text": "LF enchanter, have mats, will tip", "expect": ["d'enchanteur", "matériaux", "je paie"], "forbid": ["pivoter", "astuce"]}
+{"text": "bring your mats and I craft it", "expect": ["matériaux"]}
+{"text": "why does the general goods vendor not have a fishing pole ? :D", "expect": ["vendeur de fournitures générales", "canne à pêche", ":D"], "forbid": ["poteau", "biens généraux"]}
+{"text": "where can i buy a fishing rod", "expect": ["puis-je", "canne à pêche"], "forbid": ["puis-j'"]}
+{"text": "need fishing trainer", "expect": ["instructeur de pêche"]}
+{"text": "anyone with a mining pick to sell?", "expect": ["pic de mineur"], "forbid": ["une mine", "hache"]}
+{"text": "gm", "expect": ["bonjour"]}
+{"text": "GM !", "expect": ["Bonjour !"]}
+{"text": "gm all :)", "expect": ["bonjour à tous"]}
+{"text": "goodmorning", "expect": ["bonjour"]}
+{"text": "goodnight everyone!", "expect": ["bonne nuit à tous"]}
+{"text": "ask a GM about it", "expect": ["GM"], "forbid": ["bonjour"]}
+{"text": "ye pretty cool", "expect": ["cool"]}
+{"text": "when it procs it just 2 shot mobs", "expect": ["deux coups"]}
+{"text": "need last heal rage feu", "expect": ["Gouffre de Ragefeu"]}
+{"text": "Because they can't speak english x')", "expect": ["anglais"]}
+{"text": "[Iron Lockbox] lf rogue", "expect": ["voleur", "[Iron Lockbox]"]}
+{"text": "can sb port me to UC ?", "expect": ["Fossoyeuse"]}
+{"text": "im lost lol, how do i get to the crossroads", "expect": ["perdu"], "forbid": ["J'ai perdu"]}
+{"text": "WTS leveling wow forever !! 2 Slots Left !", "expect": ["wow forever", "place"], "forbid": ["machines à sous", "pour toujours"]}
+{"text": "len sa netes este som to nekupil", "translated": true}
+{"text": "Hello everyone, LF tank", "translated": true, "forbid": []}
+{"text": "brb, need to get food", "expect": ["reviens"]}
+{"text": "idk where the quest giver is", "expect": ["sais pas", "donneur de quête"]}
+{"text": "np, gl with the dungeon", "expect": ["chance"]}
+{"text": "btw the boss drops nothing tbh", "expect": ["boss"]}
+{"text": "omw, 2 min", "expect": ["route"]}
+{"text": "gz on 60!", "expect": ["félicitations"]}
+{"text": "oom, wait for me", "expect": ["mana"]}
+{"text": "need rez pls", "expect": ["résurrection"]}
+{"text": "inv pls", "expect": ["invit"]}
+{"text": "LF summ to BRD, will pay", "expect": ["BRD"]}
+{"text": "WTS Linen Cloth 1g per stack", "expect": ["Etoffe de lin", "pile"]}
+{"text": "WTB Mithril Bar x20, pst", "expect": ["Barre de mithril", "mp"]}
+{"text": "selling Major Healing Potion, 5g ea", "expect": ["Potion de soins majeure", "chacun"]}
+{"text": "anyone have Peacebloom?", "expect": ["Pacifique"]}
+{"text": "lf Argent Dawn rep farm group", "expect": ["Aube d'argent", "farm de réputation"]}
+{"text": "EFC mid, def the flag!", "expect": ["drapeau"]}
+{"text": "gy camped, help", "expect": ["cimetière"]}
+{"text": "any1 up for strat?", "expect": ["strat"]}
+{"text": "lvl 30 warrior lf guild", "expect": ["guerrier", "guilde"]}
+{"text": "ty for the summ", "expect": ["merci"]}
+{"text": "kite the adds please", "expect": ["kiter", "adds"]}
+{"text": "ms>os, gdkp run tonight", "expect": ["gdkp"]}
+{"text": "suche Gruppe für Todesminen", "expect": ["groupe", "Mortemines"]}
+{"text": "jmd lust auf BRD?", "expect": ["BRD"]}
+{"text": "alguien para Mazmorras de Ragefire?", "translated": true}
+{"text": "busco grupo para RFC", "expect": ["groupe", "RFC"]}
+{"text": "alguém para RFC? vlw", "expect": ["RFC"]}
+{"text": "кто в ДМ? нужен хил", "expect": ["soigneur"]}
+{"text": "спс за инвайт", "expect": ["merci"]}
+{"text": "szukam gildii, elo", "expect": ["guilde"]}
+{"text": "qualcuno per RFC? grazie", "expect": ["merci", "RFC"]}
+{"text": "jsp où est le maître de pêche", "translated": false}
+{"text": "mdr t'es nul", "translated": false}
+{"text": "osef de ce loot", "translated": false}
+{"text": "gm all, lets go dungeon", "expect": ["bonjour"]}
+{"text": "can u tank? we need 1 more", "expect": ["tank"]}
+{"text": "WTS [Runecloth Bag] 5g", "expect": ["[Runecloth Bag]"]}
+{"text": "stop trolling please", "translated": true}
+{"text": "Gnomes are the best race", "expect": ["Gnome"]}
+{"text": "spam rep farm tonight", "expect": ["farm de réputation"]}
+{"text": "Probably the fastest leveler not counting the pet classes.", "expect": ["Probablement", "plus rapide", "classes à familier"], "forbid": ["cours", "animaux"]}
+{"text": "it's easy soloable", "expect": ["solo"]}
+{"text": "One tank and go Wailing caverns", "expect": ["aux Cavernes des lamentations", "va"], "forbid": ["un Cavernes"]}
+{"text": "dps lfg lams", "expect": ["Cavernes des lamentations"], "forbid": ["lames"]}
+{"text": "lf last tank lam", "expect": ["Cavernes des lamentations"]}
+{"text": "any one for [Chol'aruk the Ravener]", "expect": ["Quelqu'un"], "forbid": ["n'importe"]}
+{"text": "nah avoid the french at all costs", "expect": ["Non"]}
+{"text": "gz", "expect": ["Félicitations"]}
+{"text": "Eh, Ive gotten it but I have Forever on high prio atm", "expect": ["priorité"], "forbid": ["prix"]}
+{"text": "I won't be renewing my WoW sub when it expires in 2 days.", "expect": ["abonnement"], "forbid": ["sous-marin"]}
+{"text": "this is the hc waiting room xD", "expect": ["hardcore"]}
+{"text": "bloodborne on release is what gta6 is now lol", "expect": ["Bloodborne"], "forbid": ["sang"]}
+{"text": "Nope. Just permanently overleveled from all the new quests and 24/7 Rend buff", "expect": ["buff de Rend"], "forbid": ["survivre"]}
+{"text": "even with rend", "expect": ["Rend"], "forbid": ["déchirure"]}
+{"text": "GaMe Is EaSY Im PaRt Of ThE EliTe", "expect": ["jeu", "facile"]}
+{"text": "How?", "expect": ["?"], "forbid": ["-"]}
+{"text": "Yes", "expect": ["Oui"], "forbid": ["oui, oui", "Oui, oui"]}
+{"text": "Why?", "expect": ["Pourquoi"]}
+{"text": "pickup tailoring make bags with the linen cloth you get, easy starter bags", "expect": ["couture"], "forbid": ["pick-up"]}
+{"text": "Its a layer thing", "expect": ["layer"], "forbid": ["couche"]}
+{"text": "WTB Enchant Revelation in ogri", "expect": ["Orgrimmar", "J'achète"], "forbid": ["ogre"]}
+{"text": "WTB[Fiery War Axe]30g", "expect": ["J'achète", "[Fiery War Axe]"], "forbid": ["désolé"]}
+{"text": "wts 30x [Bolt of Silk Cloth] (2,5g)", "expect": ["Je vends"]}
+{"text": "WTB [Dawn Armor]", "expect": ["J'achète"], "forbid": ["vais acheter"]}
+{"text": "wtb portal to uc from tb", "expect": ["Fossoyeuse"]}
+{"text": "[Blacksmithing] LFW , Free with your mats.", "expect": ["gratuit"], "forbid": ["libre"]}
+{"text": "lf crusader enchanter, have mats + 5g tip og", "expect": ["pourboire", "Orgrimmar"], "forbid": ["pointe"]}
+{"text": "225 lockpicking rogue LFW in ORG, tips appreciated", "expect": ["crochetage"], "forbid": ["Serrurerie"]}
+{"text": "Why the fuck is this channel in frence?", "expect": ["canal", "français"], "forbid": ["France", "chaîne"]}
+{"text": "/w for an invite", "expect": ["une invitation"], "forbid": ["un invitation"]}
+{"text": "LF Balkan Guild", "expect": ["guilde"], "forbid": ["le guilde"]}
+{"text": "where to learn fist weapons ?", "expect": ["armes de pugilat"]}
+{"text": "need tank dm north plz", "expect": ["Hache-tripes Nord"]}
+{"text": "can i change the way i look in forever ?", "expect": ["WoW Forever"], "forbid": ["pour toujours"]}
+{"text": "Solo it. You're invincible.", "expect": ["invincible"]}
+{"text": "ye, until it sells below vendor price. just keep undercutting boys", "expect": ["moins cher"], "forbid": ["décourager"]}
+{"text": "anyone know where to train enchanting 150-225?", "expect": ["apprendre"], "forbid": ["entraîner"]}
+{"text": "WTS portal from TB", "expect": ["Je vends"]}
+{"text": "i play wow forever at work gta 6 at home im not like you.", "expect": ["Forever", "GTA"], "forbid": ["pour toujours"]}
+{"text": "need heal pour lamentation", "translated": false}
+{"text": "[Enchanting] Chest:+8 Sta,+2 Stats,+6 Int|Bracers:+3 Agi,+5 Str/Int/Sta|Boots:+4 Agi,+5 Sta|Gloves:+7 Agi/Str|2H Weapons — your MATS, tips welcome!", "expect": ["[Enchanting]", "Poignets", "Bottes", "Gants"], "forbid": ["⁇"]}
+{"text": "LFW Portals to Org or UC.  [Enchanting: Enchant Weapon - Recovery][Enchanting: Enchant Weapon - Revelation] Your mats. Tips welcome.", "expect": ["Je propose", "Orgrimmar", "Fossoyeuse", "(pourboire bienvenu)", "[Enchanting: Enchant Weapon - Recovery]"], "forbid": ["travail", "Le (", "paiement"]}
+{"text": "LFW [Enchanting][Enchanting: Enchant Weapon - Insight][Enchanting: Enchant Weapon - Recovery][Enchanting: Enchant Weapon - Revelation]", "expect": ["Je propose", "[Enchanting: Enchant Weapon - Revelation]"], "forbid": ["Enchanted"]}
+{"text": "WTS [Formula: Enchant Weapon - Crusader] 310g!  60g cheaper than AH!", "expect": ["60g", "moins cher"], "forbid": ["grammes", "désolé"]}
+{"text": "Opening ALL LOCKBOXES for FREE !! Tip if u want ^^,", "expect": ["gratuit"], "forbid": ["verrouillage", "Vous ouvrez"]}
+{"text": "are there any hunter trainers in UC?", "expect": ["maître des chasseurs", "Fossoyeuse"], "forbid": ["chasseur maître"]}
+{"text": "need lockpicker for [Coffre à fermetures en fer] X3", "expect": ["voleur"], "forbid": ["serrurier"]}
+{"text": "WTB port from TB to UC", "expect": ["J'achète", "Fossoyeuse"], "forbid": ["à tp"]}
+{"text": "Selling portals and enchants", "expect": ["vends"], "forbid": ["Vendre"]}
+{"text": "CZ-SK guilda -Angels of Darkness nabira hrace pro v zajemnou pomoc pri expeni a poznavani novych svetu. Pokud se chces bavit u hry v dobrem kolektivu pridej se k nam", "expect": ["rejoindre"], "forbid": ["Vous jouez"]}
+{"text": "lfg to do all blackfathom prequests", "expect": ["prérequis", "Profondeurs de Brassenoire"], "forbid": ["requête", "toutes les prérequis", "de Profondeurs"]}

@@ -1,0 +1,6 @@
+- **Le jeu doit être en mode fenêtré ou fenêtré plein écran**, pas en plein écran exclusif.
+- **Après avoir déplacé la surcouche**, un `/reload` est nécessaire pour que la grille suive.
+- **Si le compagnon est fermé alors que le jeu tourne**, la grille redevient visible. Masquez-la avec le raccourci de la surcouche, `/wct toggle` ou `/reload`.
+- **Quand le jeu est caché** (autre fenêtre devant, jeu réduit), le compagnon ne reçoit plus le chat. Si le jeu enregistre son chat (option « Enregistrer le chat du jeu » du compagnon, ou `/chatlog` en jeu ; fichier `Logs/WoWChatLog.txt`), les lignes des canaux, de la guilde, du groupe et des chuchotements manquées sont relues dans ce fichier et traduites à votre retour. Sans ce journal, elles ne sont pas traduites.
+- **Certaines lettres apparaissent en carrés dans le chat du jeu** (tchèque, grec…) : c'est la police du jeu. La surcouche les affiche correctement.
+- **L'argot et les fautes de frappe** restent difficiles à traduire pour n'importe quel modèle.

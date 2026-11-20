@@ -1,0 +1,64 @@
+# Translation models, published once (not with every version): run it by hand from the Actions
+# tab ("Run workflow"). The companion downloads them from the "models" release when the player
+# chooses one (first launch window or "Translation model" menu).
+name: Publish translation models
+run-name: ${{ format('Models - {0}', inputs.models || 'both') }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      models:
+        description: Models to convert and publish
+        type: choice
+        options: [both, standard, quality]
+        default: both
+
+permissions:
+  contents: write
+
+jobs:
+  models:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: companion
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install the converters
+        run: |
+          python -m pip install --upgrade pip
+          pip install ctranslate2 sentencepiece
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install "transformers[sentencepiece]"
+
+      - name: Standard model (NLLB-200 distilled 600M, int8)
+        if: inputs.models != 'quality'
+        shell: pwsh
+        run: |
+          python build/prepare_models.py
+          Compress-Archive -Path models\nllb-200-distilled-600m -DestinationPath WoWChatTranslator-model-standard.zip
+
+      - name: Quality model (NLLB-200 distilled 1.3B, int8)
+        if: inputs.models != 'standard'
+        shell: pwsh
+        run: |
+          python build/prepare_models.py --quality --quality-only
+          Compress-Archive -Path models_quality\nllb-200-distilled-1.3b -DestinationPath WoWChatTranslator-model-quality.zip
+
+      - name: Publish the "models" release
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: models
+          name: Modèles de traduction / Translation models
+          body: |
+            Downloaded by WoWChatTranslatorCompagnion when the player chooses a model (first launch or Translation model menu).
+            Standard: NLLB-200 distilled 600M. Quality: NLLB-200 distilled 1.3B. Meta AI, CC-BY-NC 4.0, converted to CTranslate2 int8.
+          prerelease: true
+          make_latest: false
+          overwrite_files: true
+          files: companion/WoWChatTranslator-model-*.zip
