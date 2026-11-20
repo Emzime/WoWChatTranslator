@@ -1,0 +1,27 @@
+version: 2
+updates:
+  # Python dependencies of the companion (companion/requirements.txt)
+  - package-ecosystem: "pip"
+    directory: "/companion"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    commit-message:
+      prefix: "deps"
+    groups:
+      # One single PR for all Python bumps instead of one per package
+      python-deps:
+        patterns: ["*"]
+
+  # Actions used in .github/workflows (checkout, setup-python, codeql-action...)
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    commit-message:
+      prefix: "ci"
+    groups:
+      # One single PR for all action bumps
+      actions:
+        patterns: ["*"]
