@@ -68,6 +68,7 @@ TRAY_CHECK_MS = 5000
 EXIT_CHECK_TIMEOUT_S = 5         # update check when closing: no longer than this
 UPDATE_RESTART_DELAY_MS = 1500   # "update ready: restarting" stays readable this long
 RECOVER_DELAYS_S = (1.0, 10.0)   # the chat log is read back at once, then once more (written late)
+ADDON_CHECK_MS = 60_000     # the addon is checked (and put back if missing) this often
 GAME_STATE_CHECK_MS = 500   # the tray menu items that need the game follow it within this time
 
 
@@ -154,12 +155,32 @@ class CompanionApp:
             log.info("Flavor found: %s (product %s)", flavor.path, flavor.product or "?")
         return bool(self.flavors)
 
-    def _install_addon(self):
+    def _check_addon(self, why):
+        """The addon may have been deleted or replaced while the companion runs (reinstalled
+        game, cleaned AddOns folder): put back and kept at the companion's version."""
+        if self._install_addon(enable_always=False):
+            log.info("Addon reinstalled (%s)", why)
+            self._status("addon_updated")
+            self.tray.notify(self.texts("addon_updated"))
+
+    def _watch_addon(self):
+        try:
+            self._check_addon("periodic check")
+        except Exception:
+            log.exception("Addon check failed")
+        self.root.after(ADDON_CHECK_MS, self._watch_addon)
+
+    def _install_addon(self, enable_always=True):
+        """enable_always: also tick the addon for every character even if nothing was copied
+        (at start-up); the periodic check only does it when it had to put the addon back, so
+        that a player who turned it off for a character is not overruled every minute."""
         updated = False
         for flavor in self.flavors:
             try:
-                updated |= installer.install(flavor)
-                installer.enable_for_all_characters(flavor)
+                copied = installer.install(flavor)
+                updated |= copied
+                if copied or enable_always:
+                    installer.enable_for_all_characters(flavor)
             except OSError:
                 log.exception("Addon install failed for %s", flavor.path)
         return updated
@@ -710,6 +731,8 @@ class CompanionApp:
         try:
             state = (self.game_running(), self.overlay.edit_mode)
             if state != getattr(self, "_menu_game_state", None):
+                if state[0] and not (getattr(self, "_menu_game_state", None) or (False,))[0]:
+                    self._check_addon("game started")      # the game reads its addons now
                 self._menu_game_state = state
                 self.tray.refresh()
         except Exception:
@@ -837,6 +860,7 @@ class CompanionApp:
         if self._install_addon():
             self._status("addon_updated")
             self.tray.notify(self.texts("addon_updated"))
+        self.root.after(ADDON_CHECK_MS, self._watch_addon)
 
         if models.installed_models():
             self._start_pipeline()

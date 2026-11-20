@@ -19,7 +19,7 @@ pyinstaller --noconfirm build/WoWChatTranslatorCompagnion.spec
 ```
 
 Structure :
-- `addon/WoWChatTranslator` : l'addon (Lua).
+- `addon/WoWChatTranslator` : l'addon (Lua) : `WoWChatTranslator.lua` (commandes, démarrage), `Core/` (pont vers le compagnon, capture du chat, choix de la langue), `Locales/` (un fichier par langue : `fr.lua`, `en.lua`…), `Data/Companion.lua` (écrit par le compagnon).
 - `companion/wctc` : le compagnon (Python).
 - `companion/data/glossary.json` : le glossaire intégré (jargon et abréviations de chat dans plusieurs langues).
 - `companion/data/places.json`, `companion/data/names.json` : noms officiels des zones, donjons, races, réputations et objets dans chaque langue, extraits des tables du jeu par `python build/build_places.py` et `python build/build_names.py`.

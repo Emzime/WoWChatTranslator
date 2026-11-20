@@ -290,13 +290,30 @@ def test_savedvars_dump_roundtrip(tmp_path):
     assert savedvars.load(path) == data
 
 
+def test_addon_update_from_flat_layout(tmp_path):
+    """An addon of an earlier version (every file at its root) is updated to the folders, and
+    keeps the companion's live state."""
+    flavor_dir = tmp_path / "_forever_"
+    target = flavor_dir / "Interface" / "AddOns" / "WoWChatTranslator"
+    target.mkdir(parents=True)
+    for name in ("Locales.lua", "Bridge.lua", "Chat.lua", "WoWChatTranslator.lua"):
+        (target / name).write_text("-- old", encoding="utf-8")
+    (target / "Companion.lua").write_text("WoWChatTranslatorCompanion = { seen = 42 }", encoding="utf-8")
+    flavor = Flavor(tmp_path, flavor_dir, "wowf")
+    assert installer.install(flavor) is True
+    assert not any((target / n).exists() for n in ("Locales.lua", "Bridge.lua", "Chat.lua", "Companion.lua"))
+    assert (target / "Core" / "Bridge.lua").is_file() and (target / "Locales" / "fr.lua").is_file()
+    assert "seen = 42" in (target / "Data" / "Companion.lua").read_text(encoding="utf-8")
+    assert installer.install(flavor) is False
+
+
 def test_companion_state_file(tmp_path):
     pytest.importorskip("lupa")
     flavor_dir = tmp_path / "_forever_"
     (flavor_dir / "Interface" / "AddOns").mkdir(parents=True)
     flavor = Flavor(tmp_path, flavor_dir, "wowf")
     assert installer.install(flavor) is True
-    target = flavor_dir / "Interface/AddOns/WoWChatTranslator/Companion.lua"
+    target = flavor_dir / "Interface/AddOns/WoWChatTranslator/Data/Companion.lua"
     assert "seen = 0" in target.read_text(encoding="utf-8")
     installer.write_companion_state(flavor, 1731670000, {"x": 0.8, "y": 0.75, "w": 0.16, "h": 0.17})
     text = target.read_text(encoding="utf-8")
@@ -779,9 +796,11 @@ def test_addon_speaks_companion_language():
 
 def test_addon_locales_complete():
     import re
-    text = (Path(__file__).resolve().parents[2] / "addon" / "WoWChatTranslator" / "Locales.lua").read_text(encoding="utf-8")
-    tables = re.findall(r"\n    (\w+) = \{\n(.*?)\n    \},", text, re.S)
-    keys = {name: set(re.findall(r"^\s+(\w+) = ", body, re.M)) for name, body in tables}
+    folder = Path(__file__).resolve().parents[2] / "addon" / "WoWChatTranslator" / "Locales"
+    keys = {}
+    for path in folder.glob("*.lua"):              # one file per language
+        name, body = re.search(r"ns\.Locales\.(\w+) = \{\n(.*?)\n\}", path.read_text(encoding="utf-8"), re.S).groups()
+        keys[name] = set(re.findall(r"^\s+(\w+) = ", body, re.M))
     assert len(keys) == 21
     for name, found in keys.items():
         assert found == keys["enUS"], name

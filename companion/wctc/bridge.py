@@ -1,7 +1,7 @@
 """Pixel bridge: receives chat messages drawn by the addon as a grid of dark cells.
 
 An addon cannot write files or use the network while the game runs, so it draws each packet
-as a small grid in the top-right corner of the chat (see addon/WoWChatTranslator/Bridge.lua,
+as a small grid in the top-right corner of the chat (see addon/WoWChatTranslator/Core/Bridge.lua,
 whose constants must match these). The companion hides the grid under a mask window that is
 excluded from screen capture, and reads it with DXGI Desktop Duplication, which honours that
 exclusion (classic GDI capture does not). The overlay also leaves a transparent hole over the

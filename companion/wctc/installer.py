@@ -11,7 +11,9 @@ from .wow import Flavor, interface_number
 log = logging.getLogger(__name__)
 
 TOC_NAME = f"{ADDON_NAME}.toc"
-COMPANION_FILE = "Companion.lua"   # rewritten by the companion while it runs: never overwritten here
+COMPANION_FILE = "Data/Companion.lua"   # rewritten by the companion while it runs: never overwritten here
+# Files of earlier versions, all at the addon's root before it had folders: removed on update.
+OLD_FILES = ("Locales.lua", "Companion.lua", "Bridge.lua", "Chat.lua")
 
 
 def _toc_field(text, field):
@@ -62,6 +64,11 @@ def enable_for_all_characters(flavor: Flavor) -> int:
     return changed
 
 
+def _addon_files(source):
+    """Relative paths ("Core/Bridge.lua", "Locales/fr.lua"...) of the bundled addon's files."""
+    return sorted(p.relative_to(source).as_posix() for p in source.rglob("*") if p.is_file())
+
+
 def install(flavor: Flavor) -> bool:
     """Returns True when files were written (the game then needs a /reload)."""
     source = addon_source_dir()
@@ -72,24 +79,30 @@ def install(flavor: Flavor) -> bool:
     template = (source / TOC_NAME).read_text(encoding="utf-8")
     toc = _render_toc(template, interface_number(flavor.root, flavor.product))
     target = flavor.addons_dir / ADDON_NAME
+    files = [f for f in _addon_files(source) if f not in (TOC_NAME, COMPANION_FILE)]
+    old = [target / name for name in OLD_FILES if (target / name).is_file()]
 
     installed_toc = target / TOC_NAME
-    if installed_toc.is_file():
+    if installed_toc.is_file() and not old:
         current = installed_toc.read_text(encoding="utf-8", errors="ignore")
-        same_files = all(
-            (target / f.name).is_file() and (target / f.name).read_bytes() == f.read_bytes()
-            for f in source.iterdir() if f.is_file() and f.name not in (TOC_NAME, COMPANION_FILE)
-        )
-        if current == toc and same_files:
+        same_files = all((target / f).is_file() and (target / f).read_bytes() == (source / f).read_bytes()
+                         for f in files)
+        if current == toc and same_files and (target / COMPANION_FILE).is_file():
             return False
 
-    target.mkdir(parents=True, exist_ok=True)
-    for item in source.iterdir():
-        if not item.is_file() or item.name == TOC_NAME:
-            continue
-        if item.name == COMPANION_FILE and (target / item.name).exists():
-            continue
-        shutil.copy2(item, target / item.name)
+    for name in files:
+        (target / name).parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source / name, target / name)
+    companion = target / COMPANION_FILE
+    if not companion.is_file():
+        companion.parent.mkdir(parents=True, exist_ok=True)
+        previous = target / "Companion.lua"           # an earlier version's, at the root
+        shutil.copy2(previous if previous.is_file() else source / COMPANION_FILE, companion)
+    for path in old:
+        try:
+            path.unlink()
+        except OSError:
+            log.warning("Could not remove the old addon file %s", path)
     (target / TOC_NAME).write_text(toc, encoding="utf-8")
     log.info("Addon installed/updated in %s (version %s)", target, _toc_field(toc, "Version"))
     return True
@@ -112,6 +125,7 @@ def write_companion_state(flavor: Flavor, seen, overlay_rect=None, lang=None, ch
                "-- and on /reload).\n"
                f"WoWChatTranslatorCompanion = {{ {', '.join(fields)} }}\n")
     path = target / COMPANION_FILE
+    path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(".tmp")
     tmp.write_text(content, encoding="utf-8")
     tmp.replace(path)

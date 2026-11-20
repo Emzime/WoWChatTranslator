@@ -19,7 +19,7 @@ pyinstaller --noconfirm build/WoWChatTranslatorCompagnion.spec
 ```
 
 Layout:
-- `addon/WoWChatTranslator`: the addon (Lua).
+- `addon/WoWChatTranslator`: the addon (Lua): `WoWChatTranslator.lua` (commands, start-up), `Core/` (bridge to the companion, chat capture, language choice), `Locales/` (one file per language: `fr.lua`, `en.lua`…), `Data/Companion.lua` (written by the companion).
 - `companion/wctc`: the companion (Python).
 - `companion/data/glossary.json`: the built-in glossary (chat jargon and abbreviations in several languages).
 - `companion/data/places.json`, `companion/data/names.json`: official names of zones, dungeons, races, reputations and items in each language, extracted from the game tables by `python build/build_places.py` and `python build/build_names.py`.

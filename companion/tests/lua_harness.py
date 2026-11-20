@@ -136,7 +136,7 @@ def load_addon():
     lua.execute(WOW_MOCK)
     ns = lua.table()
     toc = (ADDON_DIR / "WoWChatTranslator.toc").read_text(encoding="utf-8")
-    files = [l.strip() for l in toc.splitlines() if l.strip().endswith(".lua")]
+    files = [l.strip().replace("\\", "/") for l in toc.splitlines() if l.strip().endswith(".lua")]
     for name in files:
         chunk = lua.execute("return load(...)", (ADDON_DIR / name).read_text(encoding="utf-8"), name)
         chunk("WoWChatTranslator", ns)

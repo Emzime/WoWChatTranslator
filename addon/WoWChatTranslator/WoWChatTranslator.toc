@@ -2,14 +2,41 @@
 ## Title: WoWChatTranslator
 ## Notes: Instant chat translation (requires WoWChatTranslatorCompagnion)
 ## Notes-frFR: Traduction instantanée du chat (nécessite WoWChatTranslatorCompagnion)
+## Notes-deDE: Sofortige Chat-Übersetzung (benötigt WoWChatTranslatorCompagnion)
+## Notes-esES: Traducción instantánea del chat (requiere WoWChatTranslatorCompagnion)
+## Notes-esMX: Traducción instantánea del chat (requiere WoWChatTranslatorCompagnion)
+## Notes-itIT: Traduzione istantanea della chat (richiede WoWChatTranslatorCompagnion)
+## Notes-ptBR: Tradução instantânea do chat (requer WoWChatTranslatorCompagnion)
+## Notes-ruRU: Мгновенный перевод чата (требуется WoWChatTranslatorCompagnion)
 ## Author: Emzime
 ## Version: 1.0.0
 ## DefaultState: enabled
 ## SavedVariables: WoWChatTranslatorDB
 ## IconTexture: Interface\Icons\INV_Misc_Book_09
 
-Locales.lua
-Companion.lua
-Bridge.lua
-Chat.lua
+Locales\en.lua
+Locales\fr.lua
+Locales\de.lua
+Locales\es.lua
+Locales\it.lua
+Locales\pt.lua
+Locales\ru.lua
+Locales\pl.lua
+Locales\nl.lua
+Locales\sv.lua
+Locales\da.lua
+Locales\no.lua
+Locales\fi.lua
+Locales\cs.lua
+Locales\sk.lua
+Locales\ro.lua
+Locales\hu.lua
+Locales\tr.lua
+Locales\el.lua
+Locales\uk.lua
+Locales\bg.lua
+Core\Locale.lua
+Data\Companion.lua
+Core\Bridge.lua
+Core\Chat.lua
 WoWChatTranslator.lua
