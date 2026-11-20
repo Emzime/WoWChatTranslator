@@ -61,7 +61,7 @@ def close_splash():
         import pyi_splash
         pyi_splash.close()
     except Exception:
-        pass
+        pass  # no splash screen (run from source)
 
 
 TRAY_CHECK_MS = 5000
@@ -250,13 +250,13 @@ class CompanionApp:
                 elif kind == "update":
                     self._on_update_event(*payload)
         except queue.Empty:
-            pass
+            pass  # nothing more waiting
         try:
             while True:
                 action, args = self.dispatch.queue.get_nowait()
                 self._handle(action, *args)
         except queue.Empty:
-            pass
+            pass  # nothing more waiting
         self._maybe_apply_update()
         self._heartbeat()
         self._check_reload_needed()
@@ -387,18 +387,15 @@ class CompanionApp:
         def work():
             try:
                 release = updater.latest_release()
+                tag = (release or {}).get("tag_name", "")
                 if not release:
-                    return report("upd_none")
-                tag = release.get("tag_name", "")
-                if updater.parse_version(tag) <= updater.parse_version(__version__):
-                    return report("upd_latest", __version__)
-                if not updater.is_frozen():
-                    return report("upd_available", tag)
-                report("upd_available", tag)
-                self.display_queue.put(("update", ("offer", tag)))   # the player chooses: nothing downloaded yet
-            except updater.IntegrityError:
-                log.exception("Update refused")
-                report("upd_error")
+                    report("upd_none")
+                elif updater.parse_version(tag) <= updater.parse_version(__version__):
+                    report("upd_latest", __version__)
+                else:
+                    report("upd_available", tag)
+                    if updater.is_frozen():   # the player chooses: nothing downloaded yet
+                        self.display_queue.put(("update", ("offer", tag)))
             except Exception:
                 log.exception("Update check failed")
                 report("upd_error")
@@ -807,7 +804,7 @@ class CompanionApp:
             try:
                 leftover.unlink()
             except OSError:
-                pass
+                pass  # still in use or already gone: removed next time
         wait = 20.0 if "--after-update" in sys.argv else 0.0
         if not winutil.acquire_single_instance(APP_NAME, wait_s=wait):
             close_splash()
@@ -859,6 +856,7 @@ class CompanionApp:
         # daemon thread): end it for good once everything is saved.
         logging.shutdown()
         os._exit(0)
+        return 0   # not reached: os._exit() has ended the process
 
     def _on_bridge_lines(self, lines):
         self.chatlog.delivered(lines)

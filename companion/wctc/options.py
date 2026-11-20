@@ -243,7 +243,7 @@ def title_bar(body, window, subtitle, on_close):
         bar.icon = ImageTk.PhotoImage(make_icon_image(px(24)))
         tk.Label(bar, image=bar.icon, bg=BG).pack(side="left", padx=(px(0), px(8)))
     except Exception:
-        pass
+        pass  # no icon: the title alone
     title = tk.Label(bar, text="WoW Chat Translator", bg=BG, fg=GOLD, font=_font(11, "bold"))
     title.pack(side="left")
     sub = tk.Label(bar, text=f"  {subtitle}", bg=BG, fg=MUTED, font=_font(10))
@@ -377,7 +377,7 @@ class OptionsWindow:
                              lambda i: self.dispatch("set_lang", self._lang_codes[i]))
         self.lang.pack(side="right")
 
-        row = self._row(page, "menu_model", "help_model", pady=(0, 4))
+        self._row(page, "menu_model", "help_model", pady=(0, 4))
         box = tk.Frame(page, bg=PANEL, padx=px(14))
         box.pack(fill="x", pady=(px(0), px(4)))
         self.model_choices = {key: Choice(box, lambda k=key: self.dispatch("set_model", k)) for key in MODEL_CHOICES}
@@ -553,4 +553,4 @@ class OptionsWindow:
         try:
             self.window.destroy()
         except tk.TclError:
-            pass
+            pass  # window already closed

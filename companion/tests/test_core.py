@@ -1288,3 +1288,11 @@ def test_update_script_without_restart_when_closing():
     closing = updater.update_script(1, new_build, Path("C:/Games/WCT"), "WoWChatTranslatorCompagnion.exe", restart=False)
     assert "robocopy" in closing and "--after-update" not in closing
     assert "--after-update" in updater.update_script(1, new_build, Path("C:/Games/WCT"), "WoWChatTranslatorCompagnion.exe")
+
+
+def test_product_from_folder_name_without_flavor_info(tmp_path):
+    from wctc import wow
+    folder = tmp_path / "_classic_era_"
+    folder.mkdir()
+    assert wow.read_product(folder) == "wow_classic_era"
+    assert wow.read_product(tmp_path / "_forever_") == ""

@@ -40,7 +40,7 @@ class Config:
                 stored = json.load(fh)
             self._data.update({k: v for k, v in stored.items() if k in DEFAULTS})
         except FileNotFoundError:
-            pass
+            pass  # nothing stored yet: defaults
         except (OSError, ValueError):
             log.exception("Invalid config file, using defaults")
 

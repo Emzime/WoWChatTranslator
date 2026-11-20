@@ -319,7 +319,7 @@ class DxgiCapture:
             try:
                 self._camera.release()
             except Exception:
-                pass
+                pass  # capture already gone: nothing to free
         self._camera, self._key = None, None
 
 

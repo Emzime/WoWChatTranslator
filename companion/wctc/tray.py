@@ -63,7 +63,7 @@ class Tray:
         try:
             self.icon.notify(message, APP_NAME)
         except Exception:
-            pass
+            pass  # notifications unavailable: the status text still shows it
 
     def refresh(self):
         self.icon.update_menu()
@@ -72,4 +72,4 @@ class Tray:
         try:
             self.icon.stop()
         except Exception:
-            pass
+            pass  # icon already gone

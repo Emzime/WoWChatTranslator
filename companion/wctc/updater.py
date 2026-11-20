@@ -113,7 +113,7 @@ def cleanup_previous_update():
         try:
             leftover.unlink(missing_ok=True)
         except OSError:
-            pass
+            pass  # still in use: removed next time
 
 
 def _ssl_context():
@@ -124,7 +124,7 @@ def _ssl_context():
         import truststore
         return truststore.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
     except ImportError:
-        pass
+        pass  # truststore missing: certifi below
     try:
         import certifi
         return ssl.create_default_context(cafile=certifi.where())

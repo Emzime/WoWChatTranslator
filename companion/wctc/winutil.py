@@ -19,7 +19,7 @@ LWA_ALPHA = 0x00000002
 WOW_WINDOW_CLASSES = ("GxWindowClass", "GxWindowClassD3d", "GxWindowClassOpenGl")
 
 if IS_WINDOWS:
-    from ctypes import wintypes
+    import ctypes.wintypes as wintypes
 
     user32 = ctypes.windll.user32
     kernel32 = ctypes.windll.kernel32
@@ -49,7 +49,7 @@ def set_dpi_aware():
         try:
             user32.SetProcessDPIAware()
         except (AttributeError, OSError):
-            pass
+            pass  # older Windows: no DPI awareness
 
 
 def _class_name(hwnd):
@@ -290,7 +290,7 @@ def set_autostart(name, enabled):
             try:
                 winreg.DeleteValue(key, name)
             except FileNotFoundError:
-                pass
+                pass  # autostart entry already absent
 
 
 def ask_yes_no(title, text):

@@ -727,6 +727,7 @@ class Overlay:
             sx, sy, w, h = self._drag
             self.root.geometry(f"{max(120, w + event.x_root - sx)}x{max(60, h + event.y_root - sy)}")
             return "break"
+        return None
 
     def _save_user_rect(self):
         if not self._client:

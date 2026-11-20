@@ -10,9 +10,8 @@ def screenshots_dir():
     """Pictures\\WoWChatTranslator (the user's Pictures folder, wherever Windows put it)."""
     from pathlib import Path
     if sys.platform == "win32":
-        import ctypes
-        from ctypes import wintypes
-        buffer = ctypes.create_unicode_buffer(wintypes.MAX_PATH)
+        import ctypes.wintypes
+        buffer = ctypes.create_unicode_buffer(ctypes.wintypes.MAX_PATH)
         CSIDL_MYPICTURES = 0x27
         if ctypes.windll.shell32.SHGetFolderPathW(None, CSIDL_MYPICTURES, None, 0, buffer) == 0:
             return Path(buffer.value) / "WoWChatTranslator"

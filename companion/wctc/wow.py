@@ -100,8 +100,8 @@ def read_product(flavor_path: Path) -> str:
         if len(lines) >= 2:
             return lines[-1]
     except OSError:
-        pass
-    return ""
+        pass  # no .flavor.info: the folder name tells the product
+    return _FOLDER_PRODUCTS.get(flavor_path.name, "")
 
 
 def find_flavors(root: Path):
@@ -239,7 +239,7 @@ def battlenet_executable():
             match = re.search(r'"?([^"]+?Battle\.net(?: Launcher)?\.exe)"?', data, re.IGNORECASE)
             candidates.append(Path(match.group(1)) if match else Path(data) / "Battle.net.exe")
     except ImportError:
-        pass
+        pass  # not on Windows: default paths only
     candidates += [Path(p) for p in BATTLENET_DEFAULT_PATHS]
     for candidate in candidates:
         # The protocol handler may point to the launcher; the client sits next to it.

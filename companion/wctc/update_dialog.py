@@ -106,7 +106,7 @@ class UpdateDialog:
         try:
             self.window.destroy()
         except tk.TclError:
-            pass
+            pass  # window already closed
 
     def alive(self):
         try:
