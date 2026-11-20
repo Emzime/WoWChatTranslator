@@ -23,7 +23,7 @@ jobs:
   publish-wiki:
     runs-on: ubuntu-24.04   # pinned: ubuntu-latest moves to Ubuntu 26 (notice in the build)
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: Andrew-Chen-Wang/github-wiki-action@v5
         with:
           path: wiki/
