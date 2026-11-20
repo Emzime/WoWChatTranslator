@@ -79,7 +79,8 @@ def install(flavor: Flavor) -> bool:
     template = (source / TOC_NAME).read_text(encoding="utf-8")
     toc = _render_toc(template, interface_number(flavor.root, flavor.product))
     target = flavor.addons_dir / ADDON_NAME
-    files = [f for f in _addon_files(source) if f not in (TOC_NAME, COMPANION_FILE)]
+    # Never an old root file, even if one was left in the source next to the folders.
+    files = [f for f in _addon_files(source) if f not in (TOC_NAME, COMPANION_FILE) and f not in OLD_FILES]
     old = [target / name for name in OLD_FILES if (target / name).is_file()]
 
     installed_toc = target / TOC_NAME
